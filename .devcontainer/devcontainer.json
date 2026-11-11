@@ -1,0 +1,47 @@
+{
+	"name": "CERBERUS Development Environment",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "dev-container",
+	"workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+	// "workspaceFolder": "/${localWorkspaceFolderBasename}",
+	"workspaceFolder": "/workspace",
+	"containerEnv": {
+		/* Uncomment to allow the container to access the X server on the host e.g. to run Rviz and other GUI tools
+    	"DISPLAY": "${localEnv:DISPLAY}"
+		*/
+    },
+	"mounts": [
+		/* Uncomment to allow the container to access the X server on the host e.g. to run Rviz and other GUI tools
+		{
+			"source": "/tmp/.X11-unix",
+			"target": "/tmp/.X11-unix",
+			"type": "bind"
+		},
+		{
+			"source": "${localEnv:XAUTHORITY:-$HOME/.Xauthority}",
+			"target": "/root/.Xauthority",
+			"type": "bind"
+		},
+		*/
+		"source=/dev/,target=/dev/,type=bind"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                // "donjayamanne.githistory",
+				"eamodio.gitlens",
+                "mhutchie.git-graph",
+				"ms-azuretools.vscode-docker",
+				"ms-iot.vscode-ros",
+                // "ms-python.vscode-pylance",
+                // "ms-python.python"
+				// "ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"xaver.clang-format",
+              ]
+        }
+    },
+	"postStartCommand": "/bin/sh -c \"chmod 777 /workspace/.devcontainer/entrypoint.sh\" && /workspace/.devcontainer/entrypoint.sh",
+	"shutdownAction": "stopCompose",
+  }

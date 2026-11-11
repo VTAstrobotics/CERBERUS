@@ -1,0 +1,13 @@
+# git will ignore bloat resulting from build
+cerberus_ws/build/
+cerberus_ws/install/
+cerberus_ws/log/
+cerberus_ws/src/build/
+cerberus_ws/src/install/
+cerberus_ws/src/log/
+build/
+log/
+install/
+# prevent accidental overwrites
+.vscode
+.devcontainer/build.log
