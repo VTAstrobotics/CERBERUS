@@ -6,7 +6,6 @@ from launch_ros.actions import Node
 visual_slam_node = Node(
     name='visual_slam_node',
     package='isaac_ros_visual_slam',
-    plugin='isaac_ros::visual_slam::VisualSlamNode',
     executable="isaac_ros_visual_slam",
     parameters=[{
                 'enable_rectified_pose': True,
