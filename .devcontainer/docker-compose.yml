@@ -13,6 +13,9 @@ services:
       - ..:/workspace:cached
       - /dev:/dev:bind
       - ${USERPROFILE:-${HOME}}/.bash_history:/home/vscode/.bash_history
+      - /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock
+    environment:
+      - SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock
     command: sleep infinity
 
   microros-agent:
