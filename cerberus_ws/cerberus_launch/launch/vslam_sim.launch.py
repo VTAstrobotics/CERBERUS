@@ -7,6 +7,7 @@ visual_slam_node = Node(
     name='visual_slam_node',
     package='isaac_ros_visual_slam',
     plugin='isaac_ros::visual_slam::VisualSlamNode',
+    excecutable="isaac_ros_visual_slam"
     parameters=[{
                 'enable_rectified_pose': True,
                 'denoise_input_images': False,
