@@ -25,7 +25,7 @@ def generate_launch_description():
                 'enable_imu': True
                 }],
     remappings=[('stereo_camera/left/image', '/stereo/left/image_raw'),
-                ('stereo_camera/left/camera_info', 'stereo/left/camera_info'),
+                ('stereo_camera/left/camera_info', '/stereo/left/camera_info'),
                 ('stereo_camera/right/image', '/stereo/right/image_raw'),
                 ('stereo_camera/right/camera_info', '/stereo/right/camera_info'),
                 ('visual_slam/imu', '/imu')]
