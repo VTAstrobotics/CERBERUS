@@ -22,6 +22,7 @@ def generate_launch_description():
                 'odom_frame': 'odom',
                 'base_frame': 'camera_link',
                 'input_imu_frame': 'camera_gyro_optical_frame',
+                'enable_imu_fusion': False,
                 'enable_imu': True
                 }],
     remappings=[('stereo_camera/left/image', '/stereo/left/image_raw'),
