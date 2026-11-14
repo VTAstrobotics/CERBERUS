@@ -1,14 +1,16 @@
 import launch
 from launch_ros.actions import Node 
+from launch import LaunchDescription
 
 """Launch file which brings up visual slam node configured for vlsam."""
-
-visual_slam_node = Node(
+def generate_launch_description():
+    visual_slam_node = Node(
     name='visual_slam_node',
     package='isaac_ros_visual_slam',
     executable="isaac_ros_visual_slam",
     parameters=[{
                 'enable_rectified_pose': True,
+                'use_sim_time': True,
                 'denoise_input_images': False,
                 'rectified_images': True,
                 'enable_debug_mode': False,
@@ -28,3 +30,7 @@ visual_slam_node = Node(
                 ('stereo_camera/right/camera_info', '/stereo/right/camera_info'),
                 ('visual_slam/imu', '/imu')]
 )
+    return LaunchDescription([
+        visual_slam_node
+    ])
+
