@@ -1,5 +1,7 @@
 FROM ros:jazzy-ros-base
 
+RUN apt-get update && apt-get install -y git openssh-client
+
 # Basic ROS2 setup
 RUN apt update && apt install -y --no-install-recommends \
     ros-jazzy-desktop \
