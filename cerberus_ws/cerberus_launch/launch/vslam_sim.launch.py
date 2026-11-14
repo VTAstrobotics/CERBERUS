@@ -1,5 +1,5 @@
 import launch
-import launch_ros.actions
+from launch_ros.actions import Node 
 
 """Launch file which brings up visual slam node configured for vlsam."""
 
