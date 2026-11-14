@@ -12,7 +12,7 @@ Metrics:
 Run:
   pip3 install psutil
   source /opt/ros/<distro>/setup.bash
-  python3 system_monitor.py                      # default: 1 s interval
+  python3 system_monitor.py # default: 1 s interval
   python3 system_monitor.py --ros-args -p interval:=2.0
 """
 
