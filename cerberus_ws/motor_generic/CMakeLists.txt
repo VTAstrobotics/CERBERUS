@@ -8,30 +8,22 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(geometry_msgs REQUIRED)
 find_package(motor_messages REQUIRED)
-find_package(motor_control REQUIRED)
-find_package(nav_msgs REQUIRED)
-find_package(tf2 REQUIRED)
-find_package(tf2_geometry_msgs REQUIRED)
-find_package(tf2_ros REQUIRED)
 
-add_library(${PROJECT_NAME} SHARED
+add_library(motor_generic SHARED
   src/motor.cpp
 )
 
 ament_target_dependencies(motor_generic 
   rclcpp 
-  geometry_msgs
   motor_messages
-  motor_control
-  nav_msgs
-  tf2
-  tf2_geometry_msgs
-  tf2_ros
   )
 
-add_executable(motor src/motor.cpp)
+target_include_directories(motor_generic PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+  )
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

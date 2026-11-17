@@ -9,22 +9,11 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>rclcpp</buildtool_depend>
-  <buildtool_depend>geometry_msgs</buildtool_depend>
   <buildtool_depend>motor_messages</buildtool_depend>
-  <buildtool_depend>motor_control</buildtool_depend>
-  <buildtool_depend>nav_msgs</buildtool_depend>
-  <buildtool_depend>tf2</buildtool_depend>
-  <buildtool_depend>tf2_geometry_msgs</buildtool_depend>
-  <buildtool_depend>tf2_ros</buildtool_depend>
 
   <exec_depend>rclcpp</exec_depend>
-  <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>motor_messages</exec_depend>
-  <exec_depend>motor_control</exec_depend>
-  <exec_depend>nav_msgs</exec_depend>
-  <exec_depend>tf2</exec_depend>
-  <exec_depend>tf2_geometry_msgs</exec_depend>
-  <exec_depend>tf2_ros</exec_depend>
+  
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
