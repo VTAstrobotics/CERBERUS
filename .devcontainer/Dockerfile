@@ -63,7 +63,7 @@ RUN echo "source /workspace/cerberus_ws/install/setup.bash" >> ~/.bashrc
 #                                                                             #
 ###############################################################################
 # install clang-format dependencies (also add-apt-repository relies on software-properties-common)
-RUN sudo apt install -y \
+RUN sudo apt update && sudo apt install -y \
     lsb-release \
     wget \
     software-properties-common \
