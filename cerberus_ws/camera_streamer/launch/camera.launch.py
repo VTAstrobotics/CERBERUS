@@ -47,6 +47,9 @@ def generate_launch_description():
                 namespace=f'camera/Serial_{get_serial(cam_path)}',
                 parameters=[{'camera_path': cam_path}],
                 # you can also set output='screen' if you want logs on stdout
+                additional_env={
+                    'PYTHONPATH': '/usr/lib/python3/dist-packages:' + os.environ.get('PYTHONPATH', '')
+                },
             )
         )
 

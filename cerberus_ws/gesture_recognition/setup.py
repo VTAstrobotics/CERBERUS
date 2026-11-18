@@ -27,7 +27,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'gesture_recognition = gesture_recognition.gesture_recognition:main'
+            'gesture_node = gesture_recognition.gesture_recognition:main'
         ],
     },
 )
