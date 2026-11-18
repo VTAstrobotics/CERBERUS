@@ -42,11 +42,13 @@ model = YOLO(MODEL_PATH)
 # Ros Node
 # --------------------------------------------------
 
+
+# TODO: Fix launch files so that the topic name doesn't have to be hard coded
 class GestureNode(Node):
     def __init__(self):
         super().__init__('gesture_node')
         self.publisher = self.create_publisher(Int32, f'/pose', 10)
-        self.subscription = self.create_subscription(Image, f'image_raw', self.image_callback, 10)
+        self.subscription = self.create_subscription(Image, f'/camera/Serial_2450APG8VP28/image_raw', self.image_callback, 10)
         self.bridge = CvBridge()  # Initialize the CvBridge to convert between ROS and OpenCV images
 
         
@@ -55,7 +57,7 @@ class GestureNode(Node):
 # --------------------------------------------------
 
     def image_callback(self,img):
-        frame = self.bridge.imgmsg_to_cv2(img,encoding="bgr8")
+        frame = self.bridge.imgmsg_to_cv2(img,desired_encoding="bgr8")
         #crop
         height,width,_ = frame.shape
         half_width = width // 2
@@ -90,12 +92,12 @@ class GestureNode(Node):
             )
 
             for i, points in enumerate(all_keypoints):
-                if all_confidences is None:
-                    gesture = -1
-                else:
+                gesture = -1
+                if all_confidences is not None:
                     gesture = self.classify_gesture(
                         points, all_confidences[i]
                     )
+
                 #publish gesture
                 rosmsg = Int32()
                 rosmsg.data = gesture

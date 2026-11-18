@@ -13,6 +13,8 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'resource'), glob('resource/yolo11n-pose.pt')),
+        (os.path.join('share', package_name, 'launch'), glob('launch/*')),
+        (os.path.join('share', package_name, 'config'), glob("config/*")),
     ],
     install_requires=['setuptools','ultralytics'],
     zip_safe=True,
