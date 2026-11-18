@@ -7,6 +7,9 @@ def generate_launch_description():
         executable="gesture_node",
         name="gesture_node",
         parameters=[]
+         additional_env={
+        'PYTHONPATH': '/usr/lib/python3/dist-packages:' + os.environ.get('PYTHONPATH', '')
+         }
     )
 
 
